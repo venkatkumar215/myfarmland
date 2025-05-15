@@ -1,6 +1,6 @@
 // theme.ts
 
-import { FontSizeType, ThemeType } from "../config";
+import { FontSizeType, ThemeType } from "../config/type/ui-type/theme-type";
 
 export const fontSize: FontSizeType = {
   xs: 8,
@@ -32,15 +32,15 @@ export const lightTheme: ThemeType = {
       secondary: "#4D5E3E",
     },
     icon: {
-      primary: "#6F8C52",
-      secondary: "#E1E8D6",
+      active: "#6F8C52",
+      inactive: "#9E9E9E",
     },
   },
   // Define the font sizes used in the theme
   fontSize: fontSize,
 };
 
-export const darkTheme = {
+export const darkTheme: ThemeType = {
   dark: true,
   colors: {
     background: {
@@ -60,8 +60,8 @@ export const darkTheme = {
       secondary: "#4D5E3E",
     },
     icon: {
-      primary: "#6F8C52",
-      secondary: "#E1E8D6",
+      active: "#6F8C52",
+      inactive: "#E1E8D6",
     },
   },
   // Define the font sizes used in the theme

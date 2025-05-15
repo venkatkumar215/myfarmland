@@ -25,8 +25,8 @@ export interface ThemeType {
       secondary: string;
     };
     icon: {
-      primary: string;
-      secondary: string;
+      active: string;
+      inactive: string;
     };
   };
   fontSize: FontSizeType;

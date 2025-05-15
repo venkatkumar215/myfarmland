@@ -1,29 +1,20 @@
-// ThemeContext.tsx
-import React, { createContext, useContext, ReactNode } from "react";
+import React, { createContext, useContext, ReactNode, useMemo } from "react";
 import { useColorScheme } from "react-native";
-import { ThemeContextType } from "../../config/theme-type";
-import { darkTheme, lightTheme } from "../../styles/theme";
+import { lightTheme, darkTheme } from "../../styles/theme";
+import { ThemeType } from "../../config";
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const ThemeContext = createContext<ThemeType>(lightTheme);
 
-export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
-  const colorScheme = useColorScheme(); // 'light' | 'dark' | null
-  // Get the current color scheme from the device
-  // This will be 'light' or 'dark' based on the user's device settings
-  const theme = colorScheme === "dark" ? darkTheme : lightTheme;
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+  const systemColorScheme = useColorScheme(); // returns "light" | "dark" | null
+
+  const theme = useMemo(() => {
+    return systemColorScheme === "dark" ? darkTheme : lightTheme;
+  }, [systemColorScheme]);
 
   return (
-    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };
 
-// Custom hook for consuming the theme
-export const useTheme = (): ThemeContextType => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
-};
+export const useTheme = () => useContext(ThemeContext);

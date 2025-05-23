@@ -4,6 +4,7 @@ export interface FontSizeType {
   md: number;
   lg: number;
   xl: number;
+  xxl: number;
 }
 export interface ThemeType {
   dark: boolean;
@@ -27,6 +28,8 @@ export interface ThemeType {
     icon: {
       active: string;
       inactive: string;
+      primary: string;
+      secondary: string;
     };
   };
   fontSize: FontSizeType;

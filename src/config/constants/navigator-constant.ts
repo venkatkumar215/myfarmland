@@ -11,31 +11,32 @@ import CONSTANTS from "./common-constant";
 // This is a list of tabs with their names, icons, and components
 const tabList: TabList[] = [
   {
-    name: CONSTANTS.TABLIST.MARKETING,
-    iconName: "shop",
-    iconLibrary: FontAwesome6,
-    component: SettingScreen,
-  },
-  {
-    name: CONSTANTS.TABLIST.CROPS,
-    iconName: "leaf",
-    iconLibrary: FontAwesome5,
-    component: CropScreen,
-  },
-  {
-    name: CONSTANTS.TABLIST.HOME,
+    name: CONSTANTS.TAB_LIST.HOME,
     iconName: "home",
     iconLibrary: FontAwesome5,
     component: HomeScreen,
   },
   {
-    name: CONSTANTS.TABLIST.SETTINGS,
+    name: CONSTANTS.TAB_LIST.MARKETING,
+    iconName: "shop",
+    iconLibrary: FontAwesome6,
+    component: SettingScreen,
+  },
+  {
+    name: CONSTANTS.TAB_LIST.CROPS,
+    iconName: "leaf",
+    iconLibrary: FontAwesome5,
+    component: CropScreen,
+  },
+
+  {
+    name: CONSTANTS.TAB_LIST.SETTINGS,
     iconName: "cogs",
     iconLibrary: FontAwesome5,
     component: SettingScreen,
   },
   {
-    name: CONSTANTS.TABLIST.TASK,
+    name: CONSTANTS.TAB_LIST.TASK,
     iconName: "clipboard-list",
     iconLibrary: FontAwesome5,
     component: TaskScreen,

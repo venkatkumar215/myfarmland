@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { StyleSheet, View } from "react-native";
-import HeaderComponent from "../components/header/headerComponent";
+import HeaderComponent from "../components/headerComponent/headerComponent";
 import { useTheme } from "../context/theme/themeContext";
 import { ThemeType } from "../config/type/ui-type/theme-type";
 import tabList from "../config/constants/navigator-constant";
@@ -20,7 +20,7 @@ const Tab = createBottomTabNavigator<RootTabParamList>();
 
 // Define the main AppNavigator component
 // This component will render the tab navigator with the defined tabs
-const AppNavigator = () => {
+const AppNavigator: React.FC = () => {
   // This hook provides the current theme (light or dark) and its properties
   const theme = useTheme();
 
@@ -28,6 +28,7 @@ const AppNavigator = () => {
     // This function returns the current theme (light or dark)
     return {
       backgroundColor: theme.colors.background.primary,
+      cardBackgroundColor: theme.colors.background.secondary,
       color: theme.colors.text.primary,
       fontSize: theme.fontSize.sm,
     };
@@ -42,7 +43,7 @@ const AppNavigator = () => {
       fontWeight: "bold",
     },
     tabBarStyle: {
-      backgroundColor: getTheme(theme).backgroundColor,
+      backgroundColor: getTheme(theme).cardBackgroundColor,
       borderTopWidth: 0,
       elevation: 0,
     },
@@ -50,13 +51,14 @@ const AppNavigator = () => {
       display: "flex",
       flexDirection: "column",
       flex: 1,
+      backgroundColor: getTheme(theme).backgroundColor,
     },
   });
 
   return (
     <View style={styles.container}>
       {/* Header component for the app */}
-      <HeaderComponent title="My Expo App Header" />
+      <HeaderComponent />
 
       <Tab.Navigator
         screenOptions={({

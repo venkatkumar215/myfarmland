@@ -1,7 +1,8 @@
 import React, { createContext, useContext, ReactNode, useMemo } from "react";
 import { useColorScheme } from "react-native";
 import { lightTheme, darkTheme } from "../../styles/theme";
-import { ThemeType } from "../../config/type";
+// Update the import path below if 'ThemeType' is located elsewhere, for example:
+import { ThemeType } from "../../config/type/ui-type/theme-type";
 
 const ThemeContext = createContext<ThemeType>(lightTheme);
 

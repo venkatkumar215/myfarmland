@@ -1,18 +1,50 @@
 import React from "react";
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { StyleSheet, Text, View } from "react-native";
+import MyFarmText from "../../components/common/text/myfarm-text";
 
-export const HomeScreen = () => {
+import AnimalStatus from "../../components/homeComponent/animalStatus";
+import HomeActionList from "../../components/homeComponent/homeActionList";
+
+type Props = {};
+// This component represents the home screen of the application
+
+export const HomeScreen: React.FC<Props> = () => {
+  // Define styles for the HomeScreen component
+  const styles = StyleSheet.create({
+    container: {
+      display: "flex",
+      flexDirection: "column",
+    },
+    homeHeaderText: {
+      paddingTop: 15,
+      paddingLeft: 15,
+    },
+    animalList: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginTop: 20,
+      marginLeft: 15,
+    },
+    actionList: {
+      marginTop: 20,
+      marginBottom: 10,
+    },
+  });
+
   return (
-    <SafeAreaView edges={["top", "bottom"]}>
-      <View>
-        <Text style={{ fontFamily: "Quicksand-Regular",fontWeight
-        : "bold", fontSize: 24, color: "#000"
-         }}>Home Screen</Text>
-        <Text style={{ fontFamily: "Poppins" }}>
-          This is the home screen of the app.
-        </Text>
+    <View style={styles.container}>
+      <View style={styles.homeHeaderText}>
+        <MyFarmText fontSize="xxl" bold>
+          My Farm
+        </MyFarmText>
       </View>
-    </SafeAreaView>
+      <View style={styles.animalList}>
+        <AnimalStatus></AnimalStatus>
+      </View>
+      <View style={styles.actionList}>
+        <HomeActionList></HomeActionList>
+      </View>
+    </View>
   );
 };

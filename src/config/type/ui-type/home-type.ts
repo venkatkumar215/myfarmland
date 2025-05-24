@@ -3,10 +3,10 @@ export interface AnimalType {
   iconName: string;
   iconLibrary: any;
   count: number;
+  size: number;
 }
 
 export interface HomeActionType {
   name: string;
-  iconName: string;
-  iconLibrary: any;
+  imgKey: "animal" | "task" | "feed" | "crop";
 }

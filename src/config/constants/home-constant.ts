@@ -4,6 +4,7 @@ import {
   MaterialCommunityIcons,
   MaterialIcons,
 } from "@expo/vector-icons";
+
 import CONSTANTS from "./common-constant";
 import { AnimalType, HomeActionType } from "../type/ui-type/home-type";
 
@@ -13,46 +14,46 @@ export const animal_list: AnimalType[] = [
     iconName: "cow",
     iconLibrary: MaterialCommunityIcons,
     count: 15,
-  },
-  {
-    name: CONSTANTS.ANIMAL_LIST.SHEEP,
-    iconName: "sheep",
-    iconLibrary: MaterialCommunityIcons,
-    count: 10,
+    size: 36,
   },
   {
     name: CONSTANTS.ANIMAL_LIST.GOAT,
     iconName: "goat",
     iconLibrary: MaterialIcons,
+    count: 10,
+    size: 36,
+  },
+  {
+    name: CONSTANTS.ANIMAL_LIST.CHICKEN,
+    iconName: "egg",
+    iconLibrary: FontAwesome5,
     count: 5,
+    size: 36,
   },
   {
     name: CONSTANTS.ANIMAL_LIST.TO_DO,
     iconName: "warning",
     iconLibrary: FontAwesome,
     count: 0,
+    size: 30,
   },
 ];
 
 export const home_action_list: HomeActionType[] = [
   {
-    name: CONSTANTS.ANIMAL_LIST.COW,
-    iconName: "cow",
-    iconLibrary: MaterialCommunityIcons,
+    name: CONSTANTS.HOME_ACTION_LIST.ANIMAL_MANAGEMENT,
+    imgKey: "animal",
   },
   {
-    name: CONSTANTS.ANIMAL_LIST.SHEEP,
-    iconName: "sheep",
-    iconLibrary: MaterialCommunityIcons,
+    name: CONSTANTS.HOME_ACTION_LIST.CROP_MANAGEMENT,
+    imgKey: "crop",
   },
   {
-    name: CONSTANTS.ANIMAL_LIST.GOAT,
-    iconName: "goat",
-    iconLibrary: MaterialIcons,
+    name: CONSTANTS.HOME_ACTION_LIST.FARM_TASK,
+    imgKey: "task",
   },
   {
-    name: CONSTANTS.ANIMAL_LIST.TO_DO,
-    iconName: "warning",
-    iconLibrary: FontAwesome,
+    name: CONSTANTS.HOME_ACTION_LIST.FEEDING_SCHEDULE,
+    imgKey: "feed",
   },
 ];

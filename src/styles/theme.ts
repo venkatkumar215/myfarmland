@@ -34,7 +34,7 @@ export const lightTheme: ThemeType = {
     },
     icon: {
       active: "#356a40",
-      inactive: "#9E9E9E",
+      inactive: "#b5b5b1",
       primary: "#356a40",
       secondary: "#F9F9F6",
     },

@@ -11,9 +11,15 @@ const CONSTANTS = {
   },
   ANIMAL_LIST: {
     COW: "Cow",
-    SHEEP: "Sheep",
     GOAT: "Goat",
+    CHICKEN: "Chicken",
     TO_DO: "ToDo",
+  },
+  HOME_ACTION_LIST: {
+    ANIMAL_MANAGEMENT: "Animal Management",
+    FEEDING_SCHEDULE: "Feeding Schedule",
+    CROP_MANAGEMENT: "Crop Management",
+    FARM_TASK: "Farm Tasks",
   },
 };
 export default CONSTANTS;

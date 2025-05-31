@@ -16,17 +16,23 @@ const tabList: TabList[] = [
     iconLibrary: FontAwesome5,
     component: HomeScreen,
   },
-  {
-    name: CONSTANTS.TAB_LIST.MARKETING,
-    iconName: "shop",
-    iconLibrary: FontAwesome6,
-    component: SettingScreen,
-  },
+  // {
+  //   name: CONSTANTS.TAB_LIST.MARKETING,
+  //   iconName: "shop",
+  //   iconLibrary: FontAwesome6,
+  //   component: SettingScreen,
+  // },
   {
     name: CONSTANTS.TAB_LIST.CROPS,
     iconName: "leaf",
     iconLibrary: FontAwesome5,
     component: CropScreen,
+  },
+  {
+    name: CONSTANTS.TAB_LIST.TASK,
+    iconName: "clipboard-list",
+    iconLibrary: FontAwesome5,
+    component: TaskScreen,
   },
 
   {
@@ -34,12 +40,6 @@ const tabList: TabList[] = [
     iconName: "cogs",
     iconLibrary: FontAwesome5,
     component: SettingScreen,
-  },
-  {
-    name: CONSTANTS.TAB_LIST.TASK,
-    iconName: "clipboard-list",
-    iconLibrary: FontAwesome5,
-    component: TaskScreen,
   },
 ];
 export default tabList;

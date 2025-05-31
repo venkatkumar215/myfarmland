@@ -1,9 +1,10 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MyFarmText from "../../components/common/text/myfarm-text";
-
 import AnimalStatus from "../../components/homeComponent/animalStatus";
 import HomeActionList from "../../components/homeComponent/homeActionList";
+import MyFarmSpinner from "../../components/common/spinner/myfarm-spinner";
+import CONSTANTS from "../../config/constants/common-constant";
 
 type Props = {};
 // This component represents the home screen of the application
@@ -36,7 +37,7 @@ export const HomeScreen: React.FC<Props> = () => {
     <View style={styles.container}>
       <View style={styles.homeHeaderText}>
         <MyFarmText fontSize="xxl" bold>
-          My Farm
+          {CONSTANTS.HEADER_TITLE.TODAY_OVERVIEW}
         </MyFarmText>
       </View>
       <View style={styles.animalList}>

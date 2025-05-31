@@ -8,6 +8,7 @@ const CONSTANTS = {
   },
   HEADER_TITLE: {
     MY_FARM_LAND: "MyFarmLand",
+    TODAY_OVERVIEW:"Today Overview"
   },
   ANIMAL_LIST: {
     COW: "Cow",

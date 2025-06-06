@@ -24,26 +24,16 @@ const AppNavigator: React.FC = () => {
   // This hook provides the current theme (light or dark) and its properties
   const theme = useTheme();
 
-  const getTheme = (theme: ThemeType) => {
-    // This function returns the current theme (light or dark)
-    return {
-      backgroundColor: theme.colors.background.primary,
-      cardBackgroundColor: theme.colors.background.secondary,
-      color: theme.colors.text.primary,
-      fontSize: theme.fontSize.sm,
-    };
-  };
-
   // Define styles for the tab bar
   // These styles will be applied to the tab bar and its items
   const styles = StyleSheet.create({
     tabBarLabelStyle: {
-      fontSize: getTheme(theme).fontSize,
-      fontFamily: "Quicksand-Regular",
+      fontSize: theme.fonts.fontSize.sm,
+      fontFamily: theme.fonts.fontFamily,
       fontWeight: "bold",
     },
     tabBarStyle: {
-      backgroundColor: getTheme(theme).cardBackgroundColor,
+      backgroundColor: theme.colors.background.secondary,
       borderTopWidth: 0,
       elevation: 0,
     },
@@ -51,7 +41,7 @@ const AppNavigator: React.FC = () => {
       display: "flex",
       flexDirection: "column",
       flex: 1,
-      backgroundColor: getTheme(theme).backgroundColor,
+      backgroundColor: theme.colors.background.primary,
     },
   });
 

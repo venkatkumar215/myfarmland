@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { ThemeProvider } from "./context/theme/themeContext";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
+import LogIn from "./screens/logIn/logIn.screen";
 
 export default function App() {
   // Load custom fonts
@@ -21,7 +22,9 @@ export default function App() {
         <SafeAreaProvider>
           <NavigationContainer>
             <StatusBar style="auto" />
-            <AppNavigator />
+            <LogIn />
+
+            {/* <AppNavigator /> */}
           </NavigationContainer>
         </SafeAreaProvider>
       </ThemeProvider>

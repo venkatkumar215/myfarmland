@@ -5,6 +5,7 @@ export interface FontSizeType {
   lg: number;
   xl: number;
   xxl: number;
+  xxxl: number;
 }
 export interface ThemeType {
   dark: boolean;
@@ -31,6 +32,16 @@ export interface ThemeType {
       primary: string;
       secondary: string;
     };
+    inputText: {
+      primary: string;
+      secondary: string;
+    };
+    error: {
+      primary: string;
+    };
   };
-  fontSize: FontSizeType;
+  fonts: {
+    fontSize: FontSizeType;
+    fontFamily: string;
+  };
 }

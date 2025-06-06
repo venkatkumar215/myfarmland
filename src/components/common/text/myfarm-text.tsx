@@ -1,4 +1,4 @@
-import React, { Children, ReactNode } from "react";
+import React, { useMemo } from "react";
 import {
   Text,
   StyleSheet,
@@ -8,50 +8,50 @@ import {
 } from "react-native";
 import { ThemeType } from "../../../config/type/ui-type/theme-type";
 import { useTheme } from "../../../context/theme/themeContext";
-import { fontSize } from "../../../styles/theme";
 
 interface Props extends TextProps {
-  // Define the props for the MyFarmText component
   style?: StyleProp<TextStyle>;
-  children: ReactNode;
+  children: React.ReactNode;
   bold?: boolean;
-  fontSize?: keyof ThemeType["fontSize"]; // Optional prop to determine the font size
-  color?: keyof ThemeType["colors"]["text"]; // Optional prop to determine the text color
-  // The color prop can be one of the keys in the colors.text object
+  fontSize?: keyof ThemeType["fonts"]["fontSize"];
+  color?: keyof ThemeType["colors"]["text"];
 }
 
 const MyFarmText: React.FC<Props> = ({
   children,
-  bold,
+  bold = false,
   fontSize = "md",
   color = "primary",
   style,
   ...props
 }) => {
-  const theme = useTheme(); // Get the current theme from the context
-  // Define styles for the text based on the theme and bold prop
+  const theme = useTheme();
 
-  const getTextStyle = (theme: ThemeType) =>
-    StyleSheet.create({
-      text: {
-        fontSize: theme.fontSize[fontSize],
-        color: theme.colors.text[color],
-      },
-    });
+  const styles = useMemo(
+    () => createStyles(theme, fontSize, bold, color),
+    [theme, fontSize, bold, color]
+  );
 
-  const textStyle = StyleSheet.create({
-    text: {
-      fontWeight: bold ? "bold" : "normal",
-      fontSize: getTextStyle(theme).text.fontSize,
-      color: getTextStyle(theme).text.color,
-      fontFamily: "Quicksand-Regular",
-    },
-  });
   return (
-    <Text style={[textStyle.text, style]} {...props}>
+    <Text style={[styles.text, style]} {...props}>
       {children}
     </Text>
   );
 };
+
+const createStyles = (
+  theme: ThemeType,
+  fontSize: keyof ThemeType["fonts"]["fontSize"],
+  bold: boolean,
+  color: keyof ThemeType["colors"]["text"]
+) =>
+  StyleSheet.create({
+    text: {
+      fontWeight: bold ? "bold" : "normal",
+      fontSize: theme.fonts.fontSize[fontSize] || theme.fonts.fontSize.md,
+      color: theme.colors.text[color] || theme.colors.text.primary,
+      fontFamily: theme.fonts.fontFamily,
+    },
+  });
 
 export default MyFarmText;

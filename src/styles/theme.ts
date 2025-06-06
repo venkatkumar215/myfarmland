@@ -9,6 +9,7 @@ export const fontSize: FontSizeType = {
   lg: 14,
   xl: 16,
   xxl: 18,
+  xxxl: 24,
 };
 
 // This file defines the light and dark themes for the application.
@@ -22,7 +23,7 @@ export const lightTheme: ThemeType = {
     },
     text: {
       primary: "#2E2E2E",
-      secondary: "#F9F9F6",
+      secondary: "#a9adb0",
     },
     btn: {
       primary: "#84996B",
@@ -38,9 +39,19 @@ export const lightTheme: ThemeType = {
       primary: "#356a40",
       secondary: "#F9F9F6",
     },
+    inputText: {
+      primary: "#fff",
+      secondary: "#ccc",
+    },
+    error: {
+      primary: "#FF0000",
+    },
   },
-  // Define the font sizes used in the theme
-  fontSize: fontSize,
+  // Define the font sizes,family used in the theme
+  fonts: {
+    fontSize: fontSize,
+    fontFamily: "Quicksand-Regular",
+  },
 };
 
 export const darkTheme: ThemeType = {
@@ -68,7 +79,17 @@ export const darkTheme: ThemeType = {
       primary: "#356a40",
       secondary: "#F9F9F6",
     },
+    inputText: {
+      primary: "#fff",
+      secondary: "#ccc",
+    },
+    error: {
+      primary: "#FF0000",
+    },
   },
   // Define the font sizes used in the theme
-  fontSize: fontSize,
+  fonts: {
+    fontSize: fontSize,
+    fontFamily: "Quicksand-Regular",
+  },
 };

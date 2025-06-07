@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { View, StyleSheet, Image, TextInput, Button } from "react-native";
+import { View, StyleSheet, Image } from "react-native";
 import MyFarmText from "../../components/common/text/myfarm-text";
 import { useTheme } from "../../context/theme/themeContext";
 import { ThemeType } from "../../config/type/ui-type/theme-type";
@@ -9,8 +9,9 @@ import MyfarmInput from "../../components/common/input/myfarm-input";
 import MyfarmCountryFlag from "../../components/common/countryFlag/myfarm-countryflag";
 import { mobileSchema } from "../../schemas/mobile-schema";
 import { z } from "zod";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import MyfarmButton from "../../components/common/button/myfarm-button";
 
 type Props = {};
 type MobileNumberFormData = z.infer<typeof mobileSchema>;
@@ -19,8 +20,7 @@ const LogIn: React.FC<Props> = () => {
   const theme = useTheme();
 
   const {
-    register,
-    setValue,
+    control,
     handleSubmit,
     formState: { errors },
   } = useForm<MobileNumberFormData>({
@@ -28,7 +28,7 @@ const LogIn: React.FC<Props> = () => {
   });
   const styles = useMemo(() => createStyle(theme), [theme]);
 
-  const onSubmit = (data: any): void => {
+  const onSubmit = (data: MobileNumberFormData): void => {
     console.log(data);
   };
   return (
@@ -60,21 +60,29 @@ const LogIn: React.FC<Props> = () => {
               <MyfarmCountryFlag></MyfarmCountryFlag>
             </View>
 
-            <MyfarmInput
-              placeholder={CONSTANTS.LOG_IN.ENTER_MOBILE_NUMBER}
-              keyboardType="number-pad"
-              errorFlag={errors.mobileNumber ? true : false}
-              errorMessage={errors?.mobileNumber?.message}
-              onChangeText={(text) => setValue("mobileNumber", text)}
-              {...register("mobileNumber")}
-            ></MyfarmInput>
+            <Controller
+              control={control}
+              name="mobileNumber"
+              render={({ field: { onChange, value } }) => (
+                <MyfarmInput
+                  placeholder={CONSTANTS.LOG_IN.ENTER_MOBILE_NUMBER}
+                  keyboardType="number-pad"
+                  errorFlag={!!errors.mobileNumber}
+                  errorMessage={errors?.mobileNumber?.message}
+                  onChangeText={onChange}
+                  value={value}
+                />
+              )}
+            />
           </View>
 
           <View style={styles.buttonContainer}>
-            <Button
+            <MyfarmButton
               title={CONSTANTS.LOG_IN.SEND_OTP}
               onPress={handleSubmit(onSubmit)}
-            />
+              bold
+            ></MyfarmButton>
+
             <MyFarmText style={styles.text}>
               {CONSTANTS.LOG_IN.AGREE}{" "}
               <MyFarmText bold>{CONSTANTS.LOG_IN.TERMS}</MyFarmText>{" "}
@@ -134,16 +142,17 @@ const createStyle = (theme: ThemeType) =>
       alignSelf: "center",
       paddingLeft: 10,
       textAlign: "center",
+      marginTop: 10,
     },
     countryFlag: {
-      display: "flex",
-      alignSelf: "center",
-      paddingBottom: 30,
+      justifyContent: "flex-start",
+      alignItems: "center",
+      marginTop: 20,
     },
     text: {
       textAlign: "center",
       color: theme.colors.text.secondary,
-      marginTop: 10,
+      marginTop: 25,
     },
   });
 

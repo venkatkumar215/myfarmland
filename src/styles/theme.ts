@@ -26,7 +26,7 @@ export const lightTheme: ThemeType = {
       secondary: "#a9adb0",
     },
     btn: {
-      primary: "#84996B",
+      primary: "#356a40",
       secondary: "#E1E8D6",
     },
     btnText: {

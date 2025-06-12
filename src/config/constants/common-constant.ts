@@ -31,6 +31,12 @@ const CONSTANTS = {
     PRIVACY_POLICY: "Privacy policy",
     AGREE: "By continuing, you agree to our",
     SEND_OTP: "Send OTP",
+    VERIFY_OTP: "Verify OTP",
+    ENTER_OTP_VERIFY: "Enter OTP to verify",
+    OTP_VERIFY_MESSAGE:
+      "We've  sent a 6-digit code to your mobile number +91xxxxxxxxxx.Please enter it below",
+    DONT_RECEIVE_OTP: "Don't receive the OTP?",
+    RESEND: "Resend",
   },
 };
 export default CONSTANTS;

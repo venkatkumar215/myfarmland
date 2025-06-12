@@ -6,6 +6,7 @@ import { ThemeProvider } from "./context/theme/themeContext";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import LogIn from "./screens/logIn/logIn.screen";
+import OTPVerificationScreen from "./components/loginComponent/verifyOtpComponent";
 
 export default function App() {
   // Load custom fonts
